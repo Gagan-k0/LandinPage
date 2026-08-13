@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal";
 import { SectionHeading } from "@/components/sections/SectionHeading";
 
 const FAQS = [
@@ -51,11 +52,11 @@ export default function Faq() {
           description="Everything you need to know about the FatFox restaurant platform. Still curious? Reach out anytime."
         />
         <div className="mx-auto mt-12 max-w-3xl space-y-4">
-          {FAQS.map((f) => (
-            <details
-              key={f.q}
-              className="group rounded-2xl border border-black/10 bg-white px-6 py-5 transition open:border-brand-300 open:shadow-lg open:shadow-brand-500/5"
-            >
+          {FAQS.map((f, i) => (
+            <Reveal key={f.q} delay={Math.min(i * 70, 350)}>
+              <details
+                className="group rounded-2xl border border-black/10 bg-white px-6 py-5 transition open:border-brand-300 open:shadow-lg open:shadow-brand-500/5"
+              >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-base font-bold text-ink">
                 {f.q}
                 <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-brand-50 text-brand-600 transition group-open:rotate-45 group-open:bg-brand-500 group-open:text-white">
@@ -65,7 +66,8 @@ export default function Faq() {
                 </span>
               </summary>
               <p className="mt-3 text-sm leading-relaxed text-ink/65">{f.a}</p>
-            </details>
+              </details>
+            </Reveal>
           ))}
         </div>
       </div>

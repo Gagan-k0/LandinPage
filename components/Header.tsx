@@ -16,7 +16,8 @@ const NAV = [
       { label: "Delivery Partner App", href: "/delivery", desc: "Track, accept & deliver faster" },
     ],
   },
-  { label: "Features", href: "/#features" },
+  { label: "Features", href: "/features" },
+  { label: "Industries", href: "/industries" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -65,7 +66,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-full px-4 py-2 text-sm font-medium text-ink/80 transition hover:bg-black/5 hover:text-ink",
+                  "link-slide rounded-full px-4 py-2 text-sm font-medium text-ink/80 transition hover:text-ink",
                   pathname === item.href && "bg-black/5 text-ink"
                 )}
               >
@@ -77,14 +78,20 @@ export default function Header() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <Link
-            href="/contact"
-            className="rounded-full px-5 py-2.5 text-sm font-semibold text-brand-600 transition hover:bg-brand-50"
+            href="/download"
+            className="group inline-flex items-center gap-2 rounded-full border border-black/10 px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-brand-300 hover:bg-brand-50"
           >
-            Get Started
+            <svg viewBox="0 0 24 24" className="h-4 w-4 text-brand-600 transition group-hover:-translate-y-0.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M12 3 V16 M7 11 L12 16 L17 11 M4 21 H20" />
+            </svg>
+            Download
+            <span className="rounded-full bg-brand-500 px-2 py-0.5 text-[10px] font-extrabold text-white">
+              Win 7–11
+            </span>
           </Link>
           <Link
             href="/contact"
-            className="rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-500/30 transition hover:bg-brand-600"
+            className="btn-shine rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-500/30 transition hover:bg-brand-600"
           >
             Book a Demo
           </Link>
@@ -151,11 +158,14 @@ export default function Header() {
           </div>
           <div className="mt-4 flex gap-3">
             <Link
-              href="/contact"
+              href="/download"
               onClick={() => setOpen(false)}
-              className="flex-1 rounded-full border border-brand-200 px-5 py-2.5 text-center text-sm font-semibold text-brand-600"
+              className="flex flex-1 items-center justify-center gap-2 rounded-full border border-black/10 px-5 py-2.5 text-sm font-semibold text-ink"
             >
-              Get Started
+              <svg viewBox="0 0 24 24" className="h-4 w-4 text-brand-600" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M12 3 V16 M7 11 L12 16 L17 11 M4 21 H20" />
+              </svg>
+              Download for Windows
             </Link>
             <Link
               href="/contact"

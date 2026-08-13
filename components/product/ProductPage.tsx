@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import Reveal from "@/components/Reveal";
 import DemoForm from "@/components/DemoForm";
 import { CheckIcon, SectionHeading } from "@/components/sections/SectionHeading";
 import { site } from "@/lib/site";
@@ -140,19 +141,20 @@ export function ProductPage({ data }: { data: ProductData }) {
             title="Built for real restaurant operations"
           />
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {data.features.map((f) => (
-              <article
-                key={f.title}
-                className="group rounded-3xl border border-black/5 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-500/10"
-              >
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 transition group-hover:bg-brand-500 group-hover:text-white">
-                  <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d={f.icon} />
-                  </svg>
-                </span>
-                <h3 className="mt-5 font-display text-lg font-bold text-ink">{f.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink/60">{f.desc}</p>
-              </article>
+            {data.features.map((f, i) => (
+              <Reveal key={f.title} delay={(i % 3) * 100}>
+                <article
+                  className="group h-full rounded-3xl border border-black/5 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-500/10"
+                >
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 transition group-hover:bg-brand-500 group-hover:text-white">
+                    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d={f.icon} />
+                    </svg>
+                  </span>
+                  <h3 className="mt-5 font-display text-lg font-bold text-ink">{f.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink/60">{f.desc}</p>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>

@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal";
+
 const FEATURES = [
   {
     title: "QR-code dine-in ordering",
@@ -56,19 +58,20 @@ export default function Features() {
           </p>
         </div>
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {FEATURES.map((f) => (
-            <article
-              key={f.title}
-              className="group rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur transition hover:-translate-y-1 hover:border-brand-500/40 hover:bg-white/10"
-            >
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-400 transition group-hover:bg-brand-500 group-hover:text-white">
-                <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d={f.icon} />
-                </svg>
-              </span>
-              <h3 className="mt-5 font-display text-lg font-bold">{f.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/60">{f.desc}</p>
-            </article>
+          {FEATURES.map((f, i) => (
+            <Reveal key={f.title} delay={(i % 3) * 100}>
+              <article
+                className="group h-full rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur transition hover:-translate-y-1 hover:border-brand-500/40 hover:bg-white/10"
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-400 transition group-hover:bg-brand-500 group-hover:text-white">
+                  <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d={f.icon} />
+                  </svg>
+                </span>
+                <h3 className="mt-5 font-display text-lg font-bold">{f.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/60">{f.desc}</p>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>
