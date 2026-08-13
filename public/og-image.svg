@@ -1,0 +1,91 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#141414"/>
+      <stop offset="1" stop-color="#0D0D0D"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="rgba(255,87,51,0.35)"/>
+      <stop offset="1" stop-color="rgba(255,87,51,0)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <ellipse cx="940" cy="120" rx="520" ry="420" fill="url(#glow)"/>
+  <ellipse cx="120" cy="600" rx="420" ry="330" fill="url(#glow)" opacity="0.6"/>
+
+  <g transform="translate(70,70)">
+    <path d="M12 44 L24 8 L40 26 L48 6 L56 26 L72 8 L84 44 C74 58 22 58 12 44 Z" fill="#FF5733"/>
+    <path d="M12 44 L24 8 L40 26 C28 34 18 38 12 44 Z" fill="#ED3A10"/>
+    <path d="M84 44 L72 8 L56 26 C68 34 78 38 84 44 Z" fill="#C52D0B"/>
+    <circle cx="40" cy="38" r="4" fill="#fff"/>
+    <circle cx="56" cy="38" r="4" fill="#fff"/>
+  </g>
+
+  <text x="120" y="86" font-family="Arial, sans-serif" font-size="44" font-weight="800" fill="#FFFFFF">Fat
+    <tspan fill="#FF5733">Fox</tspan>
+  </text>
+
+  <text x="70" y="180" font-family="Arial, sans-serif" font-size="56" font-weight="800" fill="#FFFFFF">All-in-one restaurant software</text>
+  <text x="70" y="246" font-family="Arial, sans-serif" font-size="56" font-weight="800" fill="#FFFFFF">that <tspan fill="#FF5733">grows with you</tspan></text>
+
+  <text x="70" y="310" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.65)">Online storefront · Cloud POS &amp; admin · Delivery partner app</text>
+
+  <g font-family="Arial, sans-serif" font-size="18" font-weight="bold">
+    <rect x="70" y="350" width="240" height="60" rx="30" fill="#FF5733"/>
+    <text x="122" y="388" fill="#FFFFFF">Book a Free Demo</text>
+    <rect x="330" y="350" width="260" height="60" rx="30" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)"/>
+    <text x="385" y="388" fill="#FFFFFF">Explore Products</text>
+  </g>
+
+  <g transform="translate(590,120)">
+    <rect width="540" height="460" rx="20" fill="#1A1A1A" stroke="rgba(255,255,255,0.1)"/>
+    <rect x="24" y="20" width="492" height="26" rx="8" fill="#232323"/>
+    <circle cx="36" cy="33" r="3.5" fill="#FF6B5E"/>
+    <circle cx="48" cy="33" r="3.5" fill="#FFD166"/>
+    <circle cx="60" cy="33" r="3.5" fill="#6BCB77"/>
+    <text x="440" y="38" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#FF7A5C">● LIVE</text>
+
+    <text x="24" y="84" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.5)">Today's Revenue</text>
+    <text x="24" y="116" font-family="Arial, sans-serif" font-size="30" font-weight="bold" fill="#FFFFFF">₹84,250</text>
+    <rect x="190" y="90" width="70" height="22" rx="11" fill="rgba(107,203,119,0.18)"/>
+    <text x="200" y="105" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#6BCB77">+18.4%</text>
+
+    <rect x="24" y="136" width="280" height="140" rx="10" fill="rgba(255,255,255,0.04)"/>
+    <rect x="40" y="220" width="40" height="40" rx="4" fill="rgba(255,255,255,0.14)"/>
+    <rect x="92" y="196" width="40" height="64" rx="4" fill="rgba(255,255,255,0.2)"/>
+    <rect x="144" y="206" width="40" height="54" rx="4" fill="rgba(255,255,255,0.16)"/>
+    <rect x="196" y="160" width="40" height="100" rx="4" fill="rgba(255,255,255,0.28)"/>
+    <rect x="248" y="146" width="40" height="114" rx="4" fill="#FF5733"/>
+
+    <rect x="24" y="296" width="280" height="140" rx="10" fill="rgba(255,255,255,0.04)"/>
+    <text x="36" y="322" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="rgba(255,255,255,0.8)">Live orders</text>
+    <text x="36" y="352" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">Paneer Tikka Roll</text>
+    <rect x="196" y="338" width="88" height="20" rx="10" fill="rgba(255,211,102,0.16)"/>
+    <text x="206" y="352" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFD166">Preparing</text>
+    <text x="36" y="378" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">Margherita Pizza</text>
+    <rect x="196" y="364" width="88" height="20" rx="10" fill="rgba(107,203,119,0.16)"/>
+    <text x="206" y="378" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#6BCB77">Delivering</text>
+    <text x="36" y="404" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">Chicken Biryani</text>
+    <rect x="196" y="390" width="88" height="20" rx="10" fill="rgba(255,87,51,0.2)"/>
+    <text x="206" y="404" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FF7A5C">New</text>
+
+    <rect x="320" y="136" width="196" height="300" rx="10" fill="rgba(255,255,255,0.04)"/>
+    <text x="336" y="162" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="rgba(255,255,255,0.8)">Floor plan</text>
+    <g font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      <rect x="336" y="178" width="56" height="30" rx="6" fill="rgba(255,255,255,0.09)"/><text x="352" y="197" fill="rgba(255,255,255,0.6)">T1</text>
+      <rect x="400" y="178" width="56" height="30" rx="6" fill="#FF5733"/><text x="416" y="197" fill="#FFFFFF">T2</text>
+      <rect x="336" y="216" width="56" height="30" rx="6" fill="rgba(255,255,255,0.09)"/><text x="352" y="235" fill="rgba(255,255,255,0.6)">T3</text>
+      <rect x="400" y="216" width="56" height="30" rx="6" fill="#6BCB77"/><text x="416" y="235" fill="#1A1A1A">T4</text>
+    </g>
+
+    <text x="336" y="286" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.5)">Orders 1,248 · KOT 86% on time</text>
+
+    <rect x="336" y="310" width="164" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
+    <rect x="336" y="310" width="123" height="6" rx="3" fill="#FF5733"/>
+    <text x="336" y="338" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.5)">Channel split</text>
+    <text x="336" y="366" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#FF7A5C">Storefront 42%</text>
+    <text x="430" y="366" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="rgba(255,255,255,0.6)">Dine-in 33%</text>
+    <text x="336" y="392" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#6BCB77">Delivery 25%</text>
+  </g>
+</svg>
