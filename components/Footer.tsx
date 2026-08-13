@@ -6,13 +6,16 @@ const PRODUCTS = [
   { name: "Storefront", href: "/storefront", desc: "White-label online ordering website for every restaurant you power." },
   { name: "Cloud POS & Admin", href: "/pos", desc: "Orders, kitchen, billing, inventory and staff — one control room." },
   { name: "Delivery Partner App", href: "/delivery", desc: "A driver app your delivery fleet will love to use." },
+  { name: "Desktop App (Windows)", href: "/download", desc: "Installable FatFox POS for Windows 7, 8, 10 & 11." },
 ];
 
 const COMPANY = [
   { name: "About Us", href: "/about" },
+  { name: "Careers", href: "/careers" },
   { name: "Pricing", href: "/pricing" },
+  { name: "Features", href: "/features" },
+  { name: "Industries", href: "/industries" },
   { name: "Contact", href: "/contact" },
-  { name: "Book a Demo", href: "/contact" },
 ];
 
 const LEGAL = [

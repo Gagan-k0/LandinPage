@@ -67,7 +67,129 @@ body {
   animation: float-slow 6s ease-in-out infinite;
 }
 
+@keyframes blob-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(24px, -18px) scale(1.08);
+  }
+  66% {
+    transform: translate(-18px, 14px) scale(0.95);
+  }
+}
+
+.animate-blob {
+  animation: blob-drift 14s ease-in-out infinite;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-rise {
+  animation: hero-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Button shine sweep */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 65%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+}
+
+.btn-shine:hover::after {
+  transform: translateX(120%);
+}
+
+/* Underline slide for nav links */
+.link-slide {
+  position: relative;
+}
+
+.link-slide::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  width: 100%;
+  border-radius: 2px;
+  background: #ff5733;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.link-slide:hover::after,
+.link-slide:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Gradient ring on hover for cards */
+.card-ring {
+  position: relative;
+}
+
+.card-ring::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 87, 51, 0.55), rgba(255, 87, 51, 0.08));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card-ring:hover::before {
+  opacity: 1;
+}
+
 ::selection {
   background: #ff5733;
   color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee,
+  .animate-float-slow,
+  .animate-blob,
+  .animate-hero-rise {
+    animation: none;
+  }
+  .btn-shine::after {
+    display: none;
+  }
 }

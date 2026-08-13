@@ -54,15 +54,24 @@ export default function Hero() {
             </svg>
             Built by {site.builder.name} — official AI & software development company
           </p>
-          <h1 className="text-balance mt-6 font-display text-[2.6rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-6xl lg:text-[4.2rem]">
+          <h1
+            className="animate-hero-rise text-balance mt-6 font-display text-[2.6rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-6xl lg:text-[4.2rem]"
+            style={{ animationDelay: "120ms" }}
+          >
             All-in-One Software Powering{" "}
             <span className="text-brand-500">Restaurant Growth</span>
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink/60 sm:text-lg">
+          <p
+            className="animate-hero-rise mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink/60 sm:text-lg"
+            style={{ animationDelay: "240ms" }}
+          >
             Stay ahead of the curve with solutions designed for tomorrow&apos;s
             challenges — flexible tools that adapt to your unique needs.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div
+            className="animate-hero-rise mt-8 flex flex-wrap items-center justify-center gap-3"
+            style={{ animationDelay: "360ms" }}
+          >
             <Link
               href="/contact"
               className="rounded-full bg-brand-500 px-8 py-4 text-sm font-bold text-white shadow-xl shadow-brand-500/30 transition hover:-translate-y-0.5 hover:bg-brand-600"

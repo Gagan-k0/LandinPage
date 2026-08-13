@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Reveal from "@/components/Reveal";
 
 type Stat = {
   value: number;
@@ -121,21 +122,22 @@ export default function Metrics() {
           </h2>
         </div>
         <dl className="mt-14 grid grid-cols-2 gap-6 lg:grid-cols-4">
-          {STATS.map((s) => (
-            <div
-              key={s.label}
-              className="rounded-3xl border border-white/10 bg-white/5 p-7 text-center backdrop-blur"
-            >
-              <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-400">
-                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d={s.icon} />
-                </svg>
-              </span>
-              <dd className="mt-4">
-                <Counter target={s.value} suffix={s.suffix} format={s.format} />
-              </dd>
-              <dt className="mt-2 text-sm text-white/60">{s.label}</dt>
-            </div>
+          {STATS.map((s, i) => (
+            <Reveal key={s.label} delay={(i % 4) * 100}>
+              <div
+                className="rounded-3xl border border-white/10 bg-white/5 p-7 text-center backdrop-blur"
+              >
+                <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-400">
+                  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d={s.icon} />
+                  </svg>
+                </span>
+                <dd className="mt-4">
+                  <Counter target={s.value} suffix={s.suffix} format={s.format} />
+                </dd>
+                <dt className="mt-2 text-sm text-white/60">{s.label}</dt>
+              </div>
+            </Reveal>
           ))}
         </dl>
         <p className="mt-10 text-center text-xs text-white/40">

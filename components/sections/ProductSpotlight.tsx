@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Reveal from "@/components/Reveal";
 import PosMockup from "@/components/mockups/PosMockup";
 import StorefrontMockup from "@/components/mockups/StorefrontMockup";
 import DriverMockup from "@/components/mockups/DriverMockup";
@@ -70,10 +71,7 @@ export default function ProductSpotlight() {
         />
         <div className="mt-16 space-y-24 lg:space-y-32">
           {SPOTLIGHTS.map((s, i) => (
-            <article
-              key={s.id}
-              className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
-            >
+            <Reveal key={s.id} as="article" className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
               <div className={cn(i % 2 === 1 && "lg:order-2")}>
                 <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-brand-600">
                   {s.eyebrow}
@@ -116,7 +114,7 @@ export default function ProductSpotlight() {
                 />
                 <div className="relative">{s.mockup}</div>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>
