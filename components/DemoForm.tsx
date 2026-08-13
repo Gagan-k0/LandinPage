@@ -1,9 +1,35 @@
 "use client";
 
 import { useState } from "react";
+import { cn } from "@/lib/utils";
+
+const inputClass =
+  "w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-ink outline-none transition placeholder:text-black/35 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20";
+
+function FieldError({ id, message }: { id: string; message?: string }) {
+  if (!message) return null;
+  return (
+    <p id={id} role="alert" className="mt-1.5 text-xs font-semibold text-red-600">
+      {message}
+    </p>
+  );
+}
 
 export default function DemoForm({ compact = false }: { compact?: boolean }) {
   const [submitted, setSubmitted] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [phoneError, setPhoneError] = useState<string | undefined>();
+
+  const validatePhone = (value: string): string | undefined => {
+    const digits = value.replace(/\D/g, "");
+    if (digits.length < 10) {
+      return "Please enter a valid phone number (10+ digits).";
+    }
+    if (digits.length > 13) {
+      return "That number looks too long — please double-check it.";
+    }
+    return undefined;
+  };
 
   if (submitted) {
     return (
@@ -26,10 +52,14 @@ export default function DemoForm({ compact = false }: { compact?: boolean }) {
       className="space-y-4"
       onSubmit={(e) => {
         e.preventDefault();
+        const err = validatePhone(phone);
+        setPhoneError(err);
+        if (err) return;
         setSubmitted(true);
       }}
+      noValidate
     >
-      <div className={compact ? "grid gap-4 sm:grid-cols-2" : "grid gap-4 sm:grid-cols-2"}>
+      <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-1.5 block text-xs font-semibold text-ink/80">
             Name *
@@ -41,7 +71,7 @@ export default function DemoForm({ compact = false }: { compact?: boolean }) {
             required
             autoComplete="name"
             placeholder="Your full name"
-            className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-ink outline-none transition placeholder:text-black/35 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
+            className={inputClass}
           />
         </div>
         <div>
@@ -55,22 +85,37 @@ export default function DemoForm({ compact = false }: { compact?: boolean }) {
             required
             autoComplete="email"
             placeholder="you@restaurant.com"
-            className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-ink outline-none transition placeholder:text-black/35 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
+            className={inputClass}
           />
         </div>
         <div>
           <label htmlFor="phone" className="mb-1.5 block text-xs font-semibold text-ink/80">
             Phone number *
           </label>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            required
-            autoComplete="tel"
-            placeholder="+91 98765 43210"
-            className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-ink outline-none transition placeholder:text-black/35 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
-          />
+          <div className="flex">
+            <span className="inline-flex items-center rounded-l-xl border border-r-0 border-black/10 bg-[#faf7f5] px-3 text-sm font-semibold text-ink/70">
+              +91
+            </span>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              required
+              autoComplete="tel"
+              placeholder="98765 43210"
+              inputMode="numeric"
+              value={phone}
+              onChange={(e) => {
+                const v = e.target.value.replace(/[^\d\s+-]/g, "");
+                setPhone(v);
+                if (phoneError) setPhoneError(validatePhone(v));
+              }}
+              aria-invalid={!!phoneError}
+              aria-describedby={phoneError ? "phone-error" : undefined}
+              className={cn(inputClass, "rounded-l-none", phoneError && "border-red-400 focus:border-red-500 focus:ring-red-500/20")}
+            />
+          </div>
+          <FieldError id="phone-error" message={phoneError} />
         </div>
         <div>
           <label htmlFor="business" className="mb-1.5 block text-xs font-semibold text-ink/80">
@@ -82,9 +127,31 @@ export default function DemoForm({ compact = false }: { compact?: boolean }) {
             type="text"
             required
             placeholder="e.g. Krishna Vilas"
-            className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-ink outline-none transition placeholder:text-black/35 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
+            className={inputClass}
           />
         </div>
+      </div>
+
+      <div>
+        <label htmlFor="interest" className="mb-1.5 block text-xs font-semibold text-ink/80">
+          Which product are you interested in? *
+        </label>
+        <select
+          id="interest"
+          name="interest"
+          required
+          defaultValue=""
+          className={inputClass}
+        >
+          <option value="" disabled>
+            Select a product…
+          </option>
+          <option>Cloud POS & Admin Panel</option>
+          <option>Online Ordering Storefront</option>
+          <option>Delivery Partner App</option>
+          <option>Complete FatFox platform</option>
+          <option>Not sure yet — need advice</option>
+        </select>
       </div>
 
       {!compact && (
@@ -95,7 +162,7 @@ export default function DemoForm({ compact = false }: { compact?: boolean }) {
           <select
             id="outlets"
             name="outlets"
-            className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-ink outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
+            className={inputClass}
             defaultValue=""
           >
             <option value="" disabled>
@@ -111,12 +178,12 @@ export default function DemoForm({ compact = false }: { compact?: boolean }) {
 
       <button
         type="submit"
-        className="w-full rounded-xl bg-brand-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-brand-500/30 transition hover:bg-brand-600 active:scale-[0.99]"
+        className="btn-shine w-full rounded-xl bg-brand-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-brand-500/30 transition hover:bg-brand-600 active:scale-[0.99]"
       >
         {compact ? "Request a Demo" : "Book My Free Demo"}
       </button>
       <p className="text-center text-xs text-ink/50">
-        Free onboarding & support · No credit card required
+        Free onboarding &amp; support · No credit card required · We reply within 24 hours
       </p>
     </form>
   );

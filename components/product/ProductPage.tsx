@@ -52,11 +52,6 @@ export function productJsonLd(p: ProductData) {
       priceCurrency: "INR",
       description: "Custom pricing — book a free demo",
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "210",
-    },
     publisher: {
       "@type": "Organization",
       name: site.builder.name,

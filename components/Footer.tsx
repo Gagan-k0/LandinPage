@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Logo from "@/components/Logo";
 import { site } from "@/lib/site";
@@ -19,10 +22,53 @@ const COMPANY = [
 ];
 
 const LEGAL = [
-  { name: "Privacy Policy", href: "#" },
-  { name: "Terms of Service", href: "#" },
-  { name: "Refund Policy", href: "#" },
+  { name: "Privacy Policy", href: "/privacy" },
+  { name: "Terms of Service", href: "/terms" },
+  { name: "Refund Policy", href: "/refund-policy" },
 ];
+
+function NewsletterForm() {
+  const [email, setEmail] = useState("");
+  const [state, setState] = useState<"idle" | "done">("idle");
+
+  if (state === "done") {
+    return (
+      <div className="rounded-2xl border border-green-200 bg-green-50 px-4 py-3 text-sm font-semibold text-green-800">
+        You&apos;re subscribed — see you in your inbox!
+      </div>
+    );
+  }
+
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        setState("done");
+      }}
+      className="flex gap-2"
+    >
+      <label htmlFor="newsletter-email" className="sr-only">
+        Email address
+      </label>
+      <input
+        id="newsletter-email"
+        type="email"
+        required
+        autoComplete="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="you@restaurant.com"
+        className="w-full min-w-0 rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-white/40 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30"
+      />
+      <button
+        type="submit"
+        className="flex-none rounded-full bg-brand-500 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-brand-500/30 transition hover:bg-brand-600"
+      >
+        Subscribe
+      </button>
+    </form>
+  );
+}
 
 export default function Footer() {
   return (
@@ -120,6 +166,15 @@ export default function Footer() {
                 </svg>
               </a>
             ))}
+          </div>
+          <h3 className="mt-8 font-display text-sm font-bold uppercase tracking-wider text-white/40">
+            Restaurant tips, monthly
+          </h3>
+          <p className="mt-2 text-xs leading-relaxed text-white/50">
+            One email a month — growth playbooks, product updates &amp; operator stories. No spam.
+          </p>
+          <div className="mt-3">
+            <NewsletterForm />
           </div>
         </div>
       </div>

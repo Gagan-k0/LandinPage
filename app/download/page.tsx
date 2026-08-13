@@ -70,11 +70,6 @@ const downloadJsonLd = {
     name: site.builder.name,
     url: site.builder.url,
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.8",
-    ratingCount: "210",
-  },
 };
 
 export default function DownloadPage() {
@@ -292,14 +287,17 @@ export default function DownloadPage() {
               { t: "Run & sign in", v: "Open the file, accept the SmartScreen prompt, and log in with your FatFox account." },
               { t: "Start billing", v: "Your menu, tables and staff are already there — start taking orders right away." },
             ].map((s, i) => (
-              <Reveal key={s.t} delay={i * 120}>
-                <li className="card-ring relative h-full rounded-3xl border border-black/10 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-500 font-display text-lg font-bold text-white shadow-lg shadow-brand-500/30">
-                    {i + 1}
-                  </span>
-                  <h3 className="mt-5 font-display text-lg font-bold text-ink">{s.t}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink/60">{s.v}</p>
-                </li>
+              <Reveal
+                key={s.t}
+                delay={i * 120}
+                as="li"
+                className="card-ring relative h-full rounded-3xl border border-black/10 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
+              >
+                <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-500 font-display text-lg font-bold text-white shadow-lg shadow-brand-500/30">
+                  {i + 1}
+                </span>
+                <h3 className="mt-5 font-display text-lg font-bold text-ink">{s.t}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink/60">{s.v}</p>
               </Reveal>
             ))}
           </ol>

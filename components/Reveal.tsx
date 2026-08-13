@@ -14,15 +14,16 @@ export default function Reveal({
   className?: string;
   as?: "div" | "section" | "li" | "article" | "figure";
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(() =>
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  );
+  const ref = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || visible) return;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const raf = requestAnimationFrame(() => setVisible(true));
+      return () => cancelAnimationFrame(raf);
+    }
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -34,21 +35,28 @@ export default function Reveal({
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [visible]);
+  }, []);
 
   const TagName = Tag as React.ElementType;
 
   return (
-    <TagName
-      ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={cn(
-        "transition-all duration-700 ease-out will-change-transform",
-        visible ? "translate-y-0 opacity-100" : "translate-y-7 opacity-0",
-        className
-      )}
-    >
-      {children}
-    </TagName>
+    <>
+      <noscript>
+        <style>{`.reveal-hidden{opacity:1!important;transform:none!important}`}</style>
+      </noscript>
+      <TagName
+        ref={ref}
+        style={{ transitionDelay: `${delay}ms` }}
+        className={cn(
+          "transition-all duration-700 ease-out will-change-transform",
+          visible
+            ? "translate-y-0 opacity-100"
+            : "reveal-hidden translate-y-7 opacity-0",
+          className
+        )}
+      >
+        {children}
+      </TagName>
+    </>
   );
 }
