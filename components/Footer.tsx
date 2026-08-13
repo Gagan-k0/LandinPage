@@ -72,7 +72,7 @@ export default function Footer() {
           </h3>
           <ul className="mt-4 space-y-3">
             {COMPANY.map((c) => (
-              <li key={c.href}>
+              <li key={c.name}>
                 <Link href={c.href} className="text-sm text-white/70 transition hover:text-white">
                   {c.name}
                 </Link>
