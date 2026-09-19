@@ -1,12 +1,30 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import PosMockup from "@/components/mockups/PosMockup";
+import DineInMockup from "@/components/mockups/DineInMockup";
 import StorefrontMockup from "@/components/mockups/StorefrontMockup";
 import DriverMockup from "@/components/mockups/DriverMockup";
 import { SectionHeading } from "@/components/sections/SectionHeading";
 import { cn } from "@/lib/utils";
 
 const SPOTLIGHTS = [
+  {
+    id: "dinin",
+    eyebrow: "Dine-In Operating System",
+    title: "Complete Dine-In & Waiter Captain App!",
+    description:
+      "Manage floor plan tables across 5 zones, empower captains with native Flutter Android app (Dineinapk), and print sub-0.5s ESC/POS thermal KOTs.",
+    points: [
+      "40+ table floor plan across AC, VIP, Family, Outdoor & Non-AC zones",
+      "Native Flutter Waiter Captain App (Dineinapk) for instant orders",
+      "0-wait QR-code table scan-and-pay with 0% commission",
+      "Silent thermal ESC/POS KOT printing via LAN (:9100) & Bluetooth",
+      "Table shift, merge, split-billing & dynamic discount codes",
+      "Pre-booking reservations calendar to maximize weekend seating",
+    ],
+    cta: { label: "Explore Dine-In System", href: "/dinin" },
+    mockup: <DineInMockup />,
+  },
   {
     id: "pos",
     eyebrow: "Cloud POS & Admin Panel",
