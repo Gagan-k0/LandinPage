@@ -28,6 +28,10 @@ type Row = {
 
 const ROWS: Row[] = [
   { feature: "Cloud POS — dine-in, takeaway & delivery", fatfox: "Included", petpooja: "Included", win: "tie" },
+  { feature: "Mobile Waiter Captain App (Dineinapk)", fatfox: "Included (Flutter native)", petpooja: "Paid add-on", win: "fatfox" },
+  { feature: "QR-code table ordering & scan-and-pay", fatfox: "Included (0% commission)", petpooja: "Additional module fee", win: "fatfox" },
+  { feature: "Instant ESC/POS thermal printer auto-discovery", fatfox: "LAN & Bluetooth auto-scan", petpooja: "Manual driver/IP setup", win: "fatfox" },
+  { feature: "Floor plan table zones & live floor metrics", fatfox: "5 floor zones + live timers", petpooja: "Standard table grid", win: "fatfox" },
   { feature: "Kitchen display system & KOT printing", fatfox: "Included", petpooja: "Included", win: "tie" },
   { feature: "Online ordering website under your own brand & domain", fatfox: "Included on every plan", petpooja: "Paid add-on", win: "fatfox" },
   { feature: "Commission on your own-branded website orders", fatfox: "0% commission*", petpooja: "Per-order fee applies", win: "fatfox" },

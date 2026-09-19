@@ -19,6 +19,20 @@ export const metadata: Metadata = {
 
 const GROUPS = [
   {
+    id: "dinin",
+    title: "Dine-In & Captain App",
+    desc: "40+ floor tables across 5 zones with Flutter Waiter App.",
+    icon: "M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z",
+    features: [
+      "Native Flutter Waiter Captain App (Dineinapk)",
+      "40+ table floor plan across 5 customizable areas",
+      "Live table status (Available, Occupied, KOT Pending, Billed)",
+      "Instant ESC/POS thermal printing (LAN :9100 & Bluetooth)",
+      "Table shifting, table merging & split billing engine",
+      "0% commission QR-code table scan & payment",
+    ],
+  },
+  {
     id: "orders",
     title: "Order management",
     desc: "Every order from every channel, in one live board.",
