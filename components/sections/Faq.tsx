@@ -28,17 +28,24 @@ const FAQS = [
   },
 ];
 
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQS.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
+interface FaqProps {
+  items?: { q: string; a: string }[];
+  title?: string;
+  description?: string;
+}
 
-export default function Faq() {
+export default function Faq({ items, title, description }: FaqProps = {}) {
+  const faqItems = items || FAQS;
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <section id="faq" className="py-20 sm:py-28">
       <div className="container-x">
@@ -48,11 +55,11 @@ export default function Faq() {
         />
         <SectionHeading
           eyebrow="FAQ"
-          title="Frequently asked questions"
-          description="Everything you need to know about the FatFox restaurant platform. Still curious? Reach out anytime."
+          title={title || "Frequently asked questions"}
+          description={description || "Everything you need to know about the FatFox restaurant platform. Still curious? Reach out anytime."}
         />
         <div className="mx-auto mt-12 max-w-3xl space-y-4">
-          {FAQS.map((f, i) => (
+          {faqItems.map((f, i) => (
             <Reveal key={f.q} delay={Math.min(i * 70, 350)}>
               <details
                 className="group rounded-2xl border border-black/10 bg-white px-6 py-5 transition open:border-brand-300 open:shadow-lg open:shadow-brand-500/5"
