@@ -150,6 +150,49 @@ export default function DownloadPage() {
           </div>
 
           <Reveal delay={150}>
+            <div className="mt-12 rounded-3xl border border-brand-500/20 bg-gradient-to-r from-brand-950 via-ink to-brand-900 p-8 text-white shadow-2xl">
+              <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] items-center gap-8">
+                <div>
+                  <span className="inline-flex items-center gap-2 rounded-full bg-brand-500/20 px-3 py-1 text-xs font-bold text-brand-300 border border-brand-500/30">
+                    📱 Mobile Applications (`Dineinapk`)
+                  </span>
+                  <h3 className="mt-3 font-display text-2xl font-extrabold sm:text-3xl">
+                    FatFox Waiter Captain App &amp; Sunmi POS APK
+                  </h3>
+                  <p className="mt-2 text-sm text-white/75 leading-relaxed">
+                    Native Flutter Android application for floor captains, table management, ESC/POS thermal printing, and Sunmi V2 / T2 handheld POS terminals.
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2 text-xs font-medium text-white/60">
+                    <span className="rounded-md bg-white/10 px-2.5 py-1">Flutter Native</span>
+                    <span className="rounded-md bg-white/10 px-2.5 py-1">Sunmi POS Ready</span>
+                    <span className="rounded-md bg-white/10 px-2.5 py-1">LAN ESC/POS Printing</span>
+                    <span className="rounded-md bg-white/10 px-2.5 py-1">40+ Table Sync</span>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <a
+                    href="https://github.com/Gagan-k0/dininapk/releases"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-brand-500/30 transition hover:bg-brand-600"
+                  >
+                    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M12 3v13m-5-5l5 5 5-5M4 21h16" />
+                    </svg>
+                    Download Captain APK (`Dineinapk`)
+                  </a>
+                  <a
+                    href="https://github.com/Gagan-k0/Fatfox-Driver-App/releases"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white/20"
+                  >
+                    Download Driver Partner APK
+                  </a>
+                </div>
+              </div>
+            </div>
+
             <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-ink/50">
               Don&apos;t see a button working? The latest build is published under{" "}
               <a href={RELEASES_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-600 underline-offset-2 hover:underline">
