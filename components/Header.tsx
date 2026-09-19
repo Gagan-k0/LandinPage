@@ -11,11 +11,13 @@ const NAV = [
     label: "Products",
     href: "/#products",
     children: [
+      { label: "Dine-In Management", href: "/dinin", desc: "40+ tables, Captain app & QR ordering" },
       { label: "Storefront", href: "/storefront", desc: "White-label online ordering website" },
       { label: "Cloud POS & Admin", href: "/pos", desc: "Orders, kitchen, billing & staff" },
       { label: "Delivery Partner App", href: "/delivery", desc: "Track, accept & deliver faster" },
     ],
   },
+  { label: "Dine-In", href: "/dinin" },
   { label: "Features", href: "/features" },
   { label: "Industries", href: "/industries" },
   { label: "Pricing", href: "/pricing" },

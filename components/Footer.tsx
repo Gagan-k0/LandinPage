@@ -6,6 +6,7 @@ import Logo from "@/components/Logo";
 import { site } from "@/lib/site";
 
 const PRODUCTS = [
+  { name: "Dine-In Management", href: "/dinin", desc: "40+ tables, Captain app, QR scan-and-pay & silent KOT printing." },
   { name: "Storefront", href: "/storefront", desc: "White-label online ordering website for every restaurant you power." },
   { name: "Cloud POS & Admin", href: "/pos", desc: "Orders, kitchen, billing, inventory and staff — one control room." },
   { name: "Delivery Partner App", href: "/delivery", desc: "A driver app your delivery fleet will love to use." },
