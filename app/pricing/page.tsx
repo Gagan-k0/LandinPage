@@ -39,8 +39,9 @@ const PLANS = [
     highlight: true,
     features: [
       "Everything in Starter",
+      "Dine-In System & Waiter Captain App (Dineinapk)",
       "Cloud POS — dine-in, takeaway & delivery",
-      "Kitchen display system",
+      "Kitchen display system & ESC/POS thermal printing",
       "GST billing & settlement reports",
       "Inventory & staff management",
       "Storefront at 0% commission*",
